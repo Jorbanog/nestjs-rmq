@@ -6,6 +6,7 @@ import { ModuleMetadata } from '@nestjs/common/interfaces';
 import { Channel, Options } from 'amqplib';
 import { RMQ_PROTOCOL } from '../constants';
 import { ConnectionOptions } from 'tls';
+import { RmqErrorService } from '../rmq-error.service';
 
 export interface IRMQServiceOptions {
 	exchangeName: string;
@@ -42,6 +43,7 @@ export interface IRMQServiceOptions {
 	middleware?: (typeof RMQPipeClass)[];
 	intercepters?: (typeof RMQIntercepterClass)[];
 	errorHandler?: typeof RMQErrorHandler;
+	errorService?: typeof RmqErrorService;
 	serviceName?: string;
 	autoBindingRoutes?: boolean;
 }

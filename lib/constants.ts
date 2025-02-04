@@ -5,6 +5,7 @@ export const RMQ_ROUTES_PATH = 'RMQ_ROUTES_PATH';
 export const RMQ_ROUTES_VALIDATE = 'RMQ_ROUTES_VALIDATE';
 export const RMQ_ROUTES_TRANSFORM = 'RMQ_ROUTES_TRANSFORM';
 export const RMQ_MODULE_OPTIONS = 'RMQ_MODULE_OPTIONS';
+export const RMQ_ERROR_SERVICE = 'RMQ_ERROR_SERVICE';
 
 export const DISCONNECT_EVENT = 'disconnect';
 export const CONNECT_EVENT = 'connect';
