@@ -1,6 +1,7 @@
 export * from './rmq.module';
 export * from './rmq.service';
 export * from './rmq-test.service';
+export * from './rmq-error.service';
 export * from './interfaces/rmq-error-headers.interface';
 export * from './interfaces/rmq-options.interface';
 export * from './interfaces/rmq-publish-options.interface';
@@ -15,5 +16,7 @@ export * from './classes/rmq-intercepter.class';
 export * from './classes/rmq-error.class';
 export * from './classes/rmq-error-handler.class';
 export * from './classes/rmq-extended-message.class';
+export * from './enums/error-type.enum';
+export * from './enums/rmq-protocol.enum';
 
 export { Message } from 'amqplib';

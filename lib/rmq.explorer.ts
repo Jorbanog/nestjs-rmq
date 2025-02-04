@@ -5,10 +5,12 @@ import { MetadataScanner } from '@nestjs/core/metadata-scanner';
 import { RMQMetadataAccessor } from './rmq-metadata.accessor';
 import { Message } from 'amqplib';
 import { requestEmitter, responseEmitter, ResponseEmitterResult } from './emmiters/router.emmiter';
-import { ERROR_TYPE, ERROR_UNDEFINED_FROM_RPC } from './constants';
+import { ERROR_UNDEFINED_FROM_RPC } from './constants';
 import { ExtendedMessage } from './classes/rmq-extended-message.class';
 import { RMQError } from './classes/rmq-error.class';
 import { IRouteOptions } from './interfaces/queue-meta.interface';
+import { ERROR_TYPE } from './enums/error-type.enum';
+
 import { validate } from 'class-validator';
 import { plainToClass } from 'class-transformer';
 

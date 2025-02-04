@@ -1,7 +1,7 @@
 import { Inject, Injectable, LoggerService, OnModuleInit } from '@nestjs/common';
 import { Channel, Message } from 'amqplib';
-import { IPublishOptions, IRMQServiceOptions, RMQError } from '.';
-import { CONNECTED_MESSAGE, ERROR_NO_ROUTE, ERROR_TYPE, RMQ_MODULE_OPTIONS } from './constants';
+import { ERROR_TYPE, IPublishOptions, IRMQServiceOptions, RMQError } from '.';
+import { CONNECTED_MESSAGE, ERROR_NO_ROUTE, RMQ_MODULE_OPTIONS } from './constants';
 import { RQMColorLogger } from './helpers/logger';
 import { IRMQService } from './interfaces/rmq-service.interface';
 import { RMQMetadataAccessor } from './rmq-metadata.accessor';

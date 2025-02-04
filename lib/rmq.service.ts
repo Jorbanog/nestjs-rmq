@@ -1,30 +1,28 @@
 import { Inject, Injectable, LoggerService, OnModuleInit } from '@nestjs/common';
 import {
 	CONNECT_EVENT,
+	CONNECT_FAILED,
+	CONNECT_FAILED_MESSAGE,
 	CONNECTED_MESSAGE,
+	DEFAULT_HEARTBEAT_TIME,
 	DEFAULT_PREFETCH_COUNT,
 	DEFAULT_RECONNECT_TIME,
 	DEFAULT_TIMEOUT,
 	DISCONNECT_EVENT,
 	DISCONNECT_MESSAGE,
+	ERROR_NO_QUEUE,
 	ERROR_NO_ROUTE,
 	ERROR_NONE_RPC,
 	ERROR_TIMEOUT,
-	ERROR_TYPE,
-	REPLY_QUEUE,
-	DEFAULT_HEARTBEAT_TIME,
-	RMQ_MODULE_OPTIONS,
 	INITIALIZATION_STEP_DELAY,
-	ERROR_NO_QUEUE,
-	RMQ_PROTOCOL,
-	CONNECT_FAILED_MESSAGE,
+	REPLY_QUEUE,
+	RMQ_MODULE_OPTIONS,
 	WRONG_CREDENTIALS_MESSAGE,
-	CONNECT_FAILED,
 } from './constants';
 import { EventEmitter } from 'events';
 import { Channel, Message } from 'amqplib';
-import * as amqp from 'amqp-connection-manager';
 // tslint:disable-next-line:no-duplicate-imports
+import * as amqp from 'amqp-connection-manager';
 import { AmqpConnectionManager, ChannelWrapper } from 'amqp-connection-manager';
 import { IRMQConnection, IRMQServiceOptions } from './interfaces/rmq-options.interface';
 import { requestEmitter, responseEmitter, ResponseEmitterResult } from './emmiters/router.emmiter';
@@ -36,6 +34,8 @@ import { RMQMetadataAccessor } from './rmq-metadata.accessor';
 import { RmqErrorService } from './rmq-error.service';
 import { getUniqId } from './utils/get-uniq-id';
 import { IRMQService } from './interfaces/rmq-service.interface';
+import { ERROR_TYPE } from './enums/error-type.enum';
+import { RMQ_PROTOCOL } from './enums/rmq-protocol.enum';
 
 @Injectable()
 export class RMQService implements OnModuleInit, IRMQService {

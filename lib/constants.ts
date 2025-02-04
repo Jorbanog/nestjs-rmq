@@ -5,7 +5,6 @@ export const RMQ_ROUTES_PATH = 'RMQ_ROUTES_PATH';
 export const RMQ_ROUTES_VALIDATE = 'RMQ_ROUTES_VALIDATE';
 export const RMQ_ROUTES_TRANSFORM = 'RMQ_ROUTES_TRANSFORM';
 export const RMQ_MODULE_OPTIONS = 'RMQ_MODULE_OPTIONS';
-export const RMQ_ERROR_SERVICE = 'RMQ_ERROR_SERVICE';
 
 export const DISCONNECT_EVENT = 'disconnect';
 export const CONNECT_EVENT = 'connect';
@@ -26,13 +25,3 @@ export const DEFAULT_HEARTBEAT_TIME = 5;
 export const DEFAULT_TIMEOUT = 30000;
 export const DEFAULT_PREFETCH_COUNT = 0;
 export const INITIALIZATION_STEP_DELAY = 300;
-
-export enum ERROR_TYPE {
-	TRANSPORT = 'TRANSPORT',
-	RMQ = 'RMQ',
-}
-
-export enum RMQ_PROTOCOL {
-	AMQP = 'amqp',
-	AMQPS = 'amqps',
-}

@@ -1,4 +1,4 @@
-import { ERROR_TYPE } from '../constants';
+import { ERROR_TYPE } from '../enums/error-type.enum';
 
 export class RMQError extends Error {
 	/**
