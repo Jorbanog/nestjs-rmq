@@ -19,15 +19,16 @@ export class RmqErrorService {
 			return null;
 		}
 		let errorHeaders = {};
-		errorHeaders['-x-error'] = error.message;
+		const modifiedError = this.modifyError(error);
+		errorHeaders['-x-error'] = modifiedError.message;
 		errorHeaders['-x-host'] = hostname();
 		errorHeaders['-x-service'] = this.options.serviceName;
-		if (this.isRMQError(error)) {
+		if (this.isRMQError(modifiedError)) {
 			errorHeaders = {
 				...errorHeaders,
-				'-x-status-code': (error as RMQError).code,
-				'-x-data': (error as RMQError).data,
-				'-x-type': (error as RMQError).type,
+				'-x-status-code': modifiedError.code,
+				'-x-data': modifiedError.data,
+				'-x-type': modifiedError.type,
 			};
 		}
 		return errorHeaders;
@@ -41,7 +42,11 @@ export class RmqErrorService {
 		return RMQErrorHandler.handle(headers);
 	}
 
-	private isRMQError(error: Error | RMQError): error is RMQError {
+	protected isRMQError(error: Error | RMQError): error is RMQError {
 		return (error as RMQError).code !== undefined;
+	}
+
+	protected modifyError(error: Error | RMQError): Error | RMQError {
+		return error;
 	}
 }
